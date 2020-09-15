@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Decrypter {
         public void decrypt(String fourNumbers)
