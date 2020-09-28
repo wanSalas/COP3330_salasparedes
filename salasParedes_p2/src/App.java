@@ -11,17 +11,25 @@ public class App
 
             BodyMassIndex bmi = new BodyMassIndex(height, weight);
             bmiData.add(bmi);
+
             displayBmiInfo(bmi);
         }
 
         displayBmiStatistics(bmiData);
     }
 
-    public static void displayBmiStatistics(ArrayList<BodyMassIndex> bmiData) {
+    static void displayBmiStatistics(ArrayList<BodyMassIndex> bmiData) {
+        double avgSum = 0;
+        for (int i=0;i<bmiData.size();i++){
+            BodyMassIndex test = bmiData.get(i);
+            avgSum += test.bmiScore();
+        }
+        System.out.println("The average Bmi is:" +(avgSum/bmiData.size()));
     }
 
-    public static void displayBmiInfo(BodyMassIndex bmi) {
-
+    static void displayBmiInfo(BodyMassIndex bmi) {
+        System.out.println(bmi.bmiScore());
+        System.out.println(bmi.bmiCategory());
     }
 
     public static boolean moreInput()
@@ -49,7 +57,6 @@ public class App
             System.out.println("TRY AGAIN");
             return getUserHeight();
         }
-
         return height;
     }
 

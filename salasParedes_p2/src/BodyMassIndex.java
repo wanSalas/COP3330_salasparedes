@@ -1,25 +1,30 @@
+
 public class BodyMassIndex {
+
+    double tempH, tempW, result;
+
     public BodyMassIndex(double height, double weight)
     {
-        double pounds = 0,inches = 0,conversion = 703.00,BMI = 0.00;
-
-        pounds = weight;
-        inches = height;
-
-        BMI = (conversion * pounds/(inches*inches));
-        BMI= Math.round((BMI * 10) * 1) / 10.0;
-
+        tempW = weight;
+        tempH = height;
+    }
+    public double bmiScore(){
+        double conversion = 703.00;
+        result =(conversion * this.tempW/(this.tempH*this.tempH));
+        result= Math.round((result * 10) * 1) / 10.0;
+        return result;
+    }
+    public String bmiCategory(){
         String b;
-        if (BMI < 18.5) {
-            b = "YOU ARE UNDERWEIGHT(EAT)";
-        } else if ((BMI) >= 18.5 && (BMI) <= 24.9) {
-            b = "YOU ARE NORMAL (POG CHAMP)";
-        } else if ((BMI) >= 25.0 && (BMI) <= 29.9) {
-            b = "YOU ARE OVERWEIGHT (STOOPID)";
+        if (result < 18.5) {
+            b = "YOU ARE UNDERWEIGHT";
+        } else if ((result) >= 18.5 && (result) <= 24.9) {
+            b = "YOU ARE NORMAL";
+        } else if ((result) >= 25.0 && (result) <= 29.9) {
+            b = "YOU ARE OVERWEIGHT";
         } else{
-            b = "YOU ARE OBESE (FATASS)";
+            b = "YOU ARE OBESE";
         }
-        System.out.println("Your BMI is: " +BMI);
-        System.out.println("" +b  );
+        return b;
     }
 }
