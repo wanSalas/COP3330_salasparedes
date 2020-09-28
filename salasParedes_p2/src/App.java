@@ -12,7 +12,7 @@ public class App
             BodyMassIndex bmi = new BodyMassIndex(height, weight);
             bmiData.add(bmi);
 
-            displayBmiInfo(bmi);
+            displayBmiInfo(bmi); //hello
         }
 
         displayBmiStatistics(bmiData);
