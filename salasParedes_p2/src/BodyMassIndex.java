@@ -1,7 +1,7 @@
 
 public class BodyMassIndex {
 
-    double tempH, tempW, result;
+    double tempH, tempW, result, average;
 
     public BodyMassIndex(double height, double weight)
     {

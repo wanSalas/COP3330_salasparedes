@@ -19,10 +19,16 @@ public class App
     }
 
     static void displayBmiStatistics(ArrayList<BodyMassIndex> bmiData) {
+        double allBMI = 0.00, outcome = 0.00;
         System.out.println(bmiData.size());
         for (int i=0;i<bmiData.size();i++){
+            BodyMassIndex test = bmiData.get(i);
+            allBMI += test.bmiScore();
             System.out.println(bmiData.get(i).Average());
         }
+        outcome = allBMI/bmiData.size();
+        outcome= Math.round((outcome * 10) * 1) / 10.0;
+        System.out.println("The average is: "+outcome);
     }
 
     static void displayBmiInfo(BodyMassIndex bmi) {
