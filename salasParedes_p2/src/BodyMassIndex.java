@@ -30,4 +30,5 @@ public class BodyMassIndex {
     public double Average(){
         return result;
     }
+
 }
