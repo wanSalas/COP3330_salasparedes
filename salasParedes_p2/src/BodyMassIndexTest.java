@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BodyMassIndexTest {
     @Test
     public void underWeight(){
-        BodyMassIndex test1 =new BodyMassIndex(64,90);
+        BodyMassIndex test1 =new BodyMassIndex(64.00,90.00);
         double exactBMI = test1.Average();
         String weight = test1.bmiCategory();
         assertEquals(15.4,exactBMI);
@@ -12,7 +12,7 @@ public class BodyMassIndexTest {
     }
     @Test
     public void normalWeight(){
-        BodyMassIndex test2 =new BodyMassIndex(73,160);
+        BodyMassIndex test2 =new BodyMassIndex(73.00,160.00);
         double exactBMI = test2.Average();
         String weight = test2.bmiCategory();
         assertEquals(21.1,exactBMI);
@@ -20,7 +20,7 @@ public class BodyMassIndexTest {
     }
     @Test
     public void overWeight(){
-        BodyMassIndex test3 =new BodyMassIndex(72,200);
+        BodyMassIndex test3 =new BodyMassIndex(72.00,200.00);
         double exactBMI = test3.Average();
         String weight = test3.bmiCategory();
         assertEquals(15.2,exactBMI);
@@ -28,7 +28,7 @@ public class BodyMassIndexTest {
     }
     @Test
     public void Obese(){
-        BodyMassIndex test4 =new BodyMassIndex(86,320);
+        BodyMassIndex test4 =new BodyMassIndex(86.00,320.00);
         double exactBMI = test4.Average();
         String weight = test4.bmiCategory();
         assertEquals(15.2,exactBMI);
