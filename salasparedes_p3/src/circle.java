@@ -1,9 +1,9 @@
 public class circle extends shape2D{
 
-    public double Area;
+    public double area;
 
     public circle(double radius){
-        this.Area = (Math.pow(radius,2))*Math.PI;
+        this.area = (Math.pow(radius,2))*Math.PI;
 
     }
 
@@ -14,6 +14,6 @@ public class circle extends shape2D{
 
     @Override
     public double getArea() {
-        return Area;
+        return area;
     }
 }

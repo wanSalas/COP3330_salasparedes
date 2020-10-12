@@ -1,16 +1,18 @@
 public class cube extends shape3D {
 
-    public double Area;
+    public double area;
+    public double volume;
 
     public cube(double length){
 
-        this.Area = Math.pow(length,2)*6;
+        this.area = Math.pow(length,2)*6;
+        this.volume = Math.pow(length,3);
 
     }
 
     @Override
     public double getVolume() {
-        return 0;
+        return volume;
     }
 
     @Override
@@ -20,6 +22,6 @@ public class cube extends shape3D {
 
     @Override
     public double getArea() {
-        return Area;
+        return area;
     }
 }
