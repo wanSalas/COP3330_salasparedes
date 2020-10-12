@@ -94,11 +94,29 @@ public class shapeTest {
         assertEquals("pyramid", shape.getName());
     }
 
-    /*@Test
+    @Test
     public void pyramidArea(){
         shape3D shape = new pyramid(10,10,10);
         assertEquals(323.61, shape.getArea(),0.01);
-    }*/
+    }
+
+    @Test
+    public void pyramidArea2(){
+        shape3D shape = new pyramid(5,10,15);
+        assertEquals(281.13, shape.getArea(),0.01);
+    }
+
+    @Test
+    public void pyramidVolume(){
+        shape3D shape = new pyramid(10,10,10);
+        assertEquals(333.33, shape.getVolume(),0.01);
+    }
+
+    @Test
+    public void pyramidVolume2(){
+        shape3D shape = new pyramid(1.5,.5,2.5);
+        assertEquals(0.63, shape.getVolume(),0.01);
+    }
 
     @Test
     public void sphereName(){

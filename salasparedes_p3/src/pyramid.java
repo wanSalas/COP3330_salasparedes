@@ -6,7 +6,8 @@ public class pyramid extends shape3D {
 
     public pyramid(double length,double width,double height) {
 
-        this.area = (length * width) +(Math.pow(height,2) + Math.pow((length/2.00),2)/width) + (Math.pow(height,2)+ Math.pow((width/2.00),2)/length);
+        this.area = (length * width) + length * Math.sqrt(Math.pow((width/2.00),2) + Math.pow(height,2)) + width * Math.sqrt(Math.pow((length/2.00),2) + Math.pow(height,2));
+        this.volume = (length*width*height)/3.00;
 
     }
 
