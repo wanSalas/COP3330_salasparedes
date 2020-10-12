@@ -1,9 +1,8 @@
-public class Square extends shape2D{
+public class square extends shape2D{
 
-    public double length;
     public double area;
 
-    public Square(double length) {
+    public square(double length) {
 
         this.area = Math.pow(length, 2);
     }

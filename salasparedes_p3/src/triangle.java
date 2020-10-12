@@ -1,6 +1,4 @@
 public class triangle extends shape2D {
-    public double Base;
-    public double Height;
     public double Area;
 
     public triangle(double Base, double Height){

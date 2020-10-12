@@ -1,23 +1,24 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-public class ShapeTest {
+
+public class shapeTest {
 
     @Test
     public void testName(){
-        shape shape = new Square(10);
+        shape shape = new square(10);
         assertEquals("square", shape.getName());
     }
 
     @Test
     public void testSquareArea(){
-        shape2D shape = new Square(10);
+        shape2D shape = new square(10);
         assertEquals(100, shape.getArea());
     }
 
     @Test
 
     public void testSquareArea2(){
-        shape2D shape = new Square(.5);
+        shape2D shape = new square(.5);
         assertEquals(.25, shape.getArea());
     }
 
@@ -58,9 +59,21 @@ public class ShapeTest {
     }
 
     @Test
+    public void cubeName(){
+        shape shape = new cube(10);
+        assertEquals("cube", shape.getName());
+    }
+
+    @Test
     public void cubeArea(){
-        shape3D shape = new Cube(10);
+        shape3D shape = new cube(10);
         assertEquals(600, shape.getArea());
+    }
+
+    @Test
+    public void cubeArea2(){
+        shape3D shape = new cube(0.5);
+        assertEquals(1.5, shape.getArea());
     }
 
     @Test
@@ -75,4 +88,3 @@ public class ShapeTest {
     }
 
 }
-`
