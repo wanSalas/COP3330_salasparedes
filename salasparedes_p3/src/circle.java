@@ -1,6 +1,7 @@
 public class circle extends shape2D{
 
     public double area;
+    public String name = "circle";
 
     public circle(double radius){
         this.area = (Math.pow(radius,2))*Math.PI;
@@ -9,7 +10,7 @@ public class circle extends shape2D{
 
     @Override
     public String getName() {
-        return "circle";
+        return name;
     }
 
     @Override

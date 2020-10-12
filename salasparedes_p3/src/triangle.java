@@ -1,5 +1,7 @@
 public class triangle extends shape2D {
+
     public double area;
+    public String name = "triangle";
 
     public triangle(double Base, double Height){
 
@@ -14,6 +16,6 @@ public class triangle extends shape2D {
 
     @Override
     public String getName() {
-        return "triangle";
+        return name;
     }
 }

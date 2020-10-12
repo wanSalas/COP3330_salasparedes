@@ -2,6 +2,7 @@ public class pyramid extends shape3D {
 
     public double area;
     public double volume;
+    public String name = "pyramid";
 
     public pyramid(double length,double width,double height) {
 
@@ -16,7 +17,7 @@ public class pyramid extends shape3D {
 
     @Override
     public String getName() {
-        return "pyramid";
+        return name;
     }
 
     @Override

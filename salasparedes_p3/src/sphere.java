@@ -1,6 +1,8 @@
 public class sphere extends shape3D {
 
-    public double Area;
+    public double area;
+    public double volume;
+    public String name = "sphere";
 
     public sphere(double Radius){
         // math
@@ -8,16 +10,16 @@ public class sphere extends shape3D {
 
     @Override
     public double getVolume() {
-        return 0;
+        return volume;
     }
 
     @Override
     public String getName() {
-        return "sphere";
+        return name;
     }
 
     @Override
     public double getArea() {
-        return 0;
+        return area;
     }
 }

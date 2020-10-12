@@ -2,6 +2,7 @@ public class cube extends shape3D {
 
     public double area;
     public double volume;
+    public String name = "cube";
 
     public cube(double length){
 
@@ -17,7 +18,7 @@ public class cube extends shape3D {
 
     @Override
     public String getName() {
-        return "cube";
+        return name;
     }
 
     @Override

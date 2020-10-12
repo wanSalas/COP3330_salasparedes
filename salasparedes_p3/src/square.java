@@ -1,6 +1,7 @@
 public class square extends shape2D{
 
     public double area;
+    public String name = "square";
 
     public square(double length) {
 
@@ -9,7 +10,7 @@ public class square extends shape2D{
 
     @Override
     public String getName() {
-        return "square";
+        return name;
     }
 
     @Override
