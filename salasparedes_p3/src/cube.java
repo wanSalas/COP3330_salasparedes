@@ -6,7 +6,7 @@ public class cube extends shape3D {
 
     public cube(double length){
 
-        this.area = Math.pow(length,2)*6;
+        this.area = Math.pow(length,2)*6.00;
         this.volume = Math.pow(length,3);
 
     }

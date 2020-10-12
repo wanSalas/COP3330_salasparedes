@@ -8,7 +8,7 @@ public class sphere extends shape3D {
 
         // area is 4(pi)r^2
         // volume is (4/3)(pi)r^3
-        this.area = 4 * Math.PI * Math.pow(radius,2);
+        this.area = 4.00 * Math.PI * Math.pow(radius,2);
         this.volume = (4.00/3.00)*(Math.PI)*(Math.pow(radius,3));
 
     }
