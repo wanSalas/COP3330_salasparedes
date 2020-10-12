@@ -1,13 +1,8 @@
-import java.lang.reflect.Array;
-import java.util.*;
-public class shape {
-    private void circle(){
 
-    }
-    private void triangle(){
+public abstract class shape {
 
-    }
-    private void square(){
+    public abstract String getName();
 
-    }
+    public abstract double getArea();
+
 }
