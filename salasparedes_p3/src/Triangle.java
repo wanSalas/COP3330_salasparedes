@@ -1,9 +1,9 @@
-public class triangle extends shape2D {
+public class Triangle extends Shape2D {
 
     public double area;
     public String name = "triangle";
 
-    public triangle(double Base, double Height){
+    public Triangle(double Base, double Height){
 
         this.area = (Base*Height)/2.00;
 

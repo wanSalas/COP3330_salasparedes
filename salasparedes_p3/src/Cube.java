@@ -1,10 +1,10 @@
-public class cube extends shape3D {
+public class Cube extends Shape3D {
 
     public double area;
     public double volume;
     public String name = "cube";
 
-    public cube(double length){
+    public Cube(double length){
 
         this.area = Math.pow(length,2)*6.00;
         this.volume = Math.pow(length,3);

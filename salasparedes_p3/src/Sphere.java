@@ -1,10 +1,10 @@
-public class sphere extends shape3D {
+public class Sphere extends Shape3D {
 
     public double area;
     public double volume;
     public String name = "sphere";
 
-    public sphere(double radius){
+    public Sphere(double radius){
 
         // area is 4(pi)r^2
         // volume is (4/3)(pi)r^3

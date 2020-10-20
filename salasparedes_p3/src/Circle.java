@@ -1,9 +1,9 @@
-public class circle extends shape2D{
+public class Circle extends Shape2D {
 
     public double area;
     public String name = "circle";
 
-    public circle(double radius){
+    public Circle(double radius){
         this.area = (Math.pow(radius,2))*Math.PI;
 
     }

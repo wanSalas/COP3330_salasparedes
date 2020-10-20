@@ -1,5 +1,5 @@
 
-public abstract class shape {
+public abstract class Shape {
 
     public abstract String getName();
 
