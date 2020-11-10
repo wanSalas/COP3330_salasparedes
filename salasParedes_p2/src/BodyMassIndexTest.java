@@ -6,16 +6,16 @@ public class BodyMassIndexTest {
         BodyMassIndex test1 =new BodyMassIndex(64.00,90.00);
         double exactBMI = test1.Average();
         String weight = test1.bmiCategory();
-        assertEquals(15.4,exactBMI);
+        assertEquals(15.4, test1.Average());
         assertEquals("YOU ARE UNDERWEIGHT",weight);
 
     }
     @Test
     public void normalWeight(){
-        BodyMassIndex test2 =new BodyMassIndex(73.00,160.00);
+        BodyMassIndex test2 = new BodyMassIndex(73.00,160.00);
         double exactBMI = test2.Average();
-        String weight = test2.bmiCategory();
         assertEquals(21.1,exactBMI);
+        String weight = test2.bmiCategory();
         assertEquals("YOU ARE NORMAL",weight);
     }
     @Test
