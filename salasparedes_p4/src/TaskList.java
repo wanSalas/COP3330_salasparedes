@@ -46,6 +46,8 @@ public class TaskList {
                     break;
                 case 4:
                     deleteFunction(taskList);
+                    System.out.println("");
+                    listMenu(taskList);
                     break;
                 case 5:
                     System.out.println("ENTERED FIVE");
@@ -73,6 +75,8 @@ public class TaskList {
         int counter = 0, counter2 = 0;
         Scanner input = new Scanner(System.in);
 
+        System.out.println("Current Tasks");
+        System.out.println("-------------");
         for (String s : taskList){
             System.out.println(counter + ")" + s);
             counter++;
@@ -82,6 +86,8 @@ public class TaskList {
         counter = input.nextInt();
         taskList.remove(counter);
 
+        System.out.println("Current Tasks");
+        System.out.println("-------------");
         for (String s : taskList){
             System.out.println(counter2 + ")" + s);
             counter2++;
