@@ -29,21 +29,23 @@ public class TaskList {
                     int counter = 0;
                     System.out.println("Current Tasks");
                     System.out.println("-------------");
-                    for(int i = 0; i < taskList.size();i++){
-                        System.out.println(counter+ ")"+ taskList.get(i));
+                    for (String s : taskList) {
+                        System.out.println(counter + ")" + s);
                         counter++;
                     }
+                    System.out.println("");
                     listMenu(taskList);
                     break;
                 case 2:
                     addingFunction(taskList);
+                    System.out.println("");
                     listMenu(taskList);
                     break;
                 case 3:
-                    System.out.println("ENTERED THREE");
+                    System.out.println("ENTERED FOUR");
                     break;
                 case 4:
-                    System.out.println("ENTERED FOUR");
+                    deleteFunction(taskList);
                     break;
                 case 5:
                     System.out.println("ENTERED FIVE");
@@ -67,6 +69,26 @@ public class TaskList {
         }
     }
 
+    private static void deleteFunction(ArrayList<String> taskList) {
+        int counter = 0, counter2 = 0;
+        Scanner input = new Scanner(System.in);
+
+        for (String s : taskList){
+            System.out.println(counter + ")" + s);
+            counter++;
+        }
+
+        System.out.print("Which task will you remove? ");
+        counter = input.nextInt();
+        taskList.remove(counter);
+
+        for (String s : taskList){
+            System.out.println(counter2 + ")" + s);
+            counter2++;
+        }
+
+    }
+
     private static void addingFunction(ArrayList<String> taskList) {
         String taskName = "", taskDescription = "", taskDueDate = "";
         System.out.print("Task title: ");
@@ -76,7 +98,7 @@ public class TaskList {
         taskDescription = input.nextLine();
         System.out.print("Task Due Date (YYYY-MM-DD): ");
         taskDueDate = input.nextLine();
-        taskList.add(taskName + " " +  taskDescription + " " + taskDueDate);
+        taskList.add("[" + taskDueDate+ "]" + " " + taskName + ": " +  taskDescription);
     }
 
     private static void makingList() {
