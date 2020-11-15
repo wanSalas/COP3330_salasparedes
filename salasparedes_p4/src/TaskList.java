@@ -68,7 +68,7 @@ public class TaskList {
     }
 
     private static void addingFunction(ArrayList<String> taskList) {
-        String taskName = "", taskDescription = "", taskDueDate = "", stringD = "" ;
+        String taskName = "", taskDescription = "", taskDueDate = "";
         System.out.print("Task title: ");
         Scanner input = new Scanner(System.in);
         taskName = input.nextLine();
@@ -76,9 +76,7 @@ public class TaskList {
         taskDescription = input.nextLine();
         System.out.print("Task Due Date (YYYY-MM-DD): ");
         taskDueDate = input.nextLine();
-        stringD = taskName + " " +  taskDescription + " " + taskDueDate;
-        System.out.print(stringD);
-        taskList.add(stringD);
+        taskList.add(taskName + " " +  taskDescription + " " + taskDueDate);
     }
 
     private static void makingList() {
