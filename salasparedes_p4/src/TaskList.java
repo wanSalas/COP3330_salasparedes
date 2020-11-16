@@ -30,5 +30,19 @@ public class TaskList {
         }
         return items;
     }
+    public TaskItem getTaskItemByIndex(int index) {
+        return taskItems.get(index);
+    }
 
+    public void editItemDescription(int index, String new_Description) {
+        taskItems.get(index).SetDescription(new_Description);
+    }
+
+    public void EditItemDueDate(int index, String new_Date) {
+        taskItems.get(index).SetDueDate(new_Date);
+    }
+
+    public void EditItemTitle(int index, String new_title) {
+        taskItems.get(index).SetTitle(new_title);
+    }
 }

@@ -28,11 +28,12 @@ public class App {
                     case 3:
                         break;
                     default:
-                        System.out.println("Please choose a valid option");
+                        System.out.println("INVALID THAT'S NOT A CHOICE");
+                        System.out.print(">");
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid option");
+                System.out.println("NO!! THAT'S A LETTER YOU DINGUS");
                 scan.nextLine();
             }
         }
@@ -42,14 +43,14 @@ public class App {
     private static void loadExistingList(Scanner scan) {
         System.out.print("Enter the filename to load: ");
         scan.nextLine();
-        String filePath = System.getProperty("user.dir") + "\\" + scan.nextLine();
-        String line;
+        String fileWasMade = System.getProperty("user.dir") + "\\" + scan.nextLine();
+        String s;
 
         TaskList taskList = new TaskList();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
+            BufferedReader br = new BufferedReader(new FileReader(fileWasMade));
+            while ((s = br.readLine()) != null) {
+                String[] values = s.split(",");
                 taskList.AddTask(new TaskItem(values[0], values[1], values[2], Boolean.parseBoolean(values[3])));
             }
             br.close();
@@ -145,6 +146,8 @@ public class App {
 
     private static void markItemComplete(Scanner scan, TaskList taskList, boolean b) {
         System.out.print("\n");
+        int choice = 0;
+        int counter = 1;
 
         if(b) {
             System.out.println("Uncompleted Tasks");
@@ -155,7 +158,8 @@ public class App {
         System.out.println("-----------------");
 
         for (int i = 0; i < taskList.GetTaskItems(!b).size(); i++) {
-            System.out.println(i + ") " + taskList.GetTaskItems(!b).get(i).toString());
+            System.out.println(counter + ") " + taskList.GetTaskItems(!b).get(i).toString());
+            counter++;
         }
 
         System.out.print("\n");
@@ -163,11 +167,11 @@ public class App {
         if (b) {
             System.out.print("Which task will you mark as completed? ");
         } else {
-            System.out.print("Which task will you mark as uncompleted? ");
+            System.out.print("Which task will you unmark as incomplete? ");
         }
 
         try {
-            int choice = scan.nextInt();
+            choice = scan.nextInt();
             taskList.GetTaskItems().get(choice).SetCompleted(b);
             System.out.print("\n");
         } catch(IndexOutOfBoundsException e) {
@@ -221,23 +225,25 @@ public class App {
     }
 
     private static void addItemToList(Scanner scan, TaskList taskList) {
-        TaskItem taskItem;
-        scan.nextLine();
-
-        System.out.print("Task title: ");
-        String title = scan.nextLine();
-
-        System.out.print("Task description: ");
-        String description = scan.nextLine();
-
-        System.out.print("Task due date (YYYY-MM-DD): ");
-        String dueDate = scan.nextLine();
-
         try {
+            TaskItem taskItem;
+            scan.nextLine();
+
+            System.out.print("Task title: ");
+            String title = scan.nextLine();
+
+            System.out.print("Task description: ");
+            String description = scan.nextLine();
+
+            System.out.print("Task due date (YYYY-MM-DD): ");
+            String dueDate = scan.nextLine();
+
             taskItem = new TaskItem(title, description, dueDate);
             taskList.AddTask(taskItem);
         } catch (IllegalArgumentException titleException) {
-            System.out.println("INVALID THE TITLE CAN'T BE LESS THAN ONE CHARACTER IDIOT");
+            System.out.println("INVALID THE TITLE CAN'T BE LESS THAN ONE CHARACTER IDIOT"
+             + "TASK WASN'T CREATED TASK MENU WILL OPEN SOON\n"
+            );
         } catch (DateTimeParseException dueDateException) {
             System.out.println("INVALID THE DATE IS WRONG PROGRAM WILL TAKE YOU BACK TO THE TASK MENU: TASK WASN'T CREATED");
         }

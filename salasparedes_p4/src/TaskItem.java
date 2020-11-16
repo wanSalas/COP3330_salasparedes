@@ -20,7 +20,6 @@ public class TaskItem {
         this.taskCompletion = completed;
     }
 
-    // Setters -------------------
     public void SetTitle (String title) throws IllegalArgumentException {
         if(title.length() < 1)
             throw new IllegalArgumentException("INVALID TITLE YOU DINGUS");
@@ -43,7 +42,6 @@ public class TaskItem {
 
     }
 
-    // Getters -----------------
     public String getTitle() {
         return title;
     }
@@ -62,7 +60,7 @@ public class TaskItem {
 
     @Override
     public String toString() {
-        String item = "[" + dueDate.toString() + "] " + title + ": " + description;
-        return taskCompletion ? "COMPLETED POGGERS " + item : item;
+        String finalProduct = "[" + dueDate.toString() + "] " + title + ": " + description;
+        return taskCompletion ? "COMPLETED POGGERS " + finalProduct : finalProduct;
     }
 }
