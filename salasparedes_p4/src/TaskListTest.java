@@ -23,14 +23,14 @@ public class TaskListTest {
     @Test
     public void addingTaskItemsIncreasesSize() {
         TaskList tl = new TaskList();
-        tl.AddTask(new TaskItem("title", "description", "2020-11-16"));
+        tl.AddTask(new TaskItem("TEST", "TEST", "1111-11-11"));
         assertEquals(1, tl.GetTaskItems().size());
     }
 
     @Test
     public void completingTaskItemChangesStatus() {
         TaskList tl = new TaskList();
-        tl.AddTask(new TaskItem("title", "desc", "2020-11-16"));
+        tl.AddTask(new TaskItem("TEST", "TEST", "1111-11-11"));
         tl.MarkItemComplete(0, true);
         assertEquals(true, tl.getTaskItemByIndex(0).isCompleted());
     }
@@ -38,14 +38,14 @@ public class TaskListTest {
     @Test
     public void completingTaskItemFailsWithInvalidIndex() {
         TaskList tl = new TaskList();
-        tl.AddTask(new TaskItem("title", "desc", "2020-11-16"));
+        tl.AddTask(new TaskItem("TEST", "TEST", "1111-11-11"));
         assertThrows(IndexOutOfBoundsException.class,() -> tl.MarkItemComplete(1, true));
     }
 
     @Test
     public void editingTaskItemDescriptionChangesValue() {
         TaskList tl = new TaskList();
-        tl.AddTask(new TaskItem("title", "desc", "2020-11-16"));
+        tl.AddTask(new TaskItem("TEST", "TEST", "1111-11-11"));
         tl.editItemDescription(0, "New Description");
         assertEquals("New Description", tl.getTaskItemByIndex(0).getDescription());
     }
@@ -53,14 +53,14 @@ public class TaskListTest {
     @Test
     public void editingTaskItemDescriptionFailsWithInvalidIndex() {
         TaskList tl = new TaskList();
-        tl.AddTask(new TaskItem("title", "desc", "2020-11-16"));
+        tl.AddTask(new TaskItem("TEST", "TEST", "1111-11-11"));
         assertThrows(IndexOutOfBoundsException.class,() -> tl.editItemDescription(1, "New Description"));
     }
 
     @Test
     public void editingTaskItemDueDateChangesValue() {
         TaskList tl = new TaskList();
-        tl.AddTask(new TaskItem("title", "desc", "2020-11-16"));
+        tl.AddTask(new TaskItem("TEST", "TEST", "1111-11-11"));
         tl.EditItemDueDate(0, "2020-11-17");
         assertEquals(LocalDate.parse("2020-11-17"), tl.getTaskItemByIndex(0).getDueDate());
     }
@@ -68,7 +68,7 @@ public class TaskListTest {
     @Test
     public void editingTaskItemDueDateFailsWithInvalidIndex() {
         TaskList tl = new TaskList();
-        tl.AddTask(new TaskItem("title", "desc", "2020-11-16"));
+        tl.AddTask(new TaskItem("TEST", "TEST", "2020-11-16"));
         assertThrows(IndexOutOfBoundsException.class,() -> tl.EditItemDueDate(1, "2020-11-17"));
     }
 

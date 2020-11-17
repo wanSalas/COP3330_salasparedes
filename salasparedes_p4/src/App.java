@@ -147,7 +147,6 @@ public class App {
     private static void markItemComplete(Scanner scan, TaskList taskList, boolean b) {
         System.out.print("\n");
         int choice = 0;
-        int counter = 1;
 
         if(b) {
             System.out.println("Uncompleted Tasks");
@@ -158,8 +157,7 @@ public class App {
         System.out.println("-----------------");
 
         for (int i = 0; i < taskList.GetTaskItems(!b).size(); i++) {
-            System.out.println(counter + ") " + taskList.GetTaskItems(!b).get(i).toString());
-            counter++;
+            System.out.println(i + ") " + taskList.GetTaskItems(!b).get(i).toString());
         }
 
         System.out.print("\n");
