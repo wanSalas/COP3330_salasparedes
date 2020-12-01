@@ -11,7 +11,7 @@ public class App {
         Scanner scan = new Scanner(System.in);
         mainMenuPrints();
 
-        int choice = -1;
+        int choice = 0;
 
         while (choice != 3) {
             try {
@@ -31,13 +31,11 @@ public class App {
                         System.out.println("INVALID THAT'S NOT A CHOICE");
                         System.out.print(">");
                 }
-
             } catch (InputMismatchException e) {
                 System.out.println("NO!! THAT'S A LETTER YOU DINGUS");
                 scan.nextLine();
             }
         }
-
     }
 
     private static void loadExistingList(Scanner scan) {
