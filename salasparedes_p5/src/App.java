@@ -8,7 +8,7 @@ public class App {
         applicationMenu();
     }
 
-    private static void applicationMenu() {
+    static void applicationMenu() {
         int choice = 0;
 
         applicationMenuPrint();

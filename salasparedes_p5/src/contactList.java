@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class contactList extends ArrayList<contactItem> {
+    private ArrayList<contactItem> test;
     public void addContact(String firstName, String lastName, String phoneNumber, String email) {
         contactItem currentContact = contactItem.newContact(firstName,lastName,phoneNumber,email);
         if(currentContact == null){
@@ -33,5 +34,9 @@ public class contactList extends ArrayList<contactItem> {
         }
         this.remove(choice);
         return true;
+    }
+
+    public ArrayList<contactItem> GetContactItem() {
+        return test;
     }
 }

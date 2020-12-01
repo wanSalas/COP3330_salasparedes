@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -32,6 +33,7 @@ public class contactApp {
                     default:
                         System.out.println("INVALID THAT'S NOT A CHOICE");
                         System.out.print(">");
+
                 }
             } catch (InputMismatchException e) {
                 System.out.println("INVALID THAT'S A LETTER!!!!");
@@ -55,6 +57,7 @@ public class contactApp {
                 switch (choice) {
                     case 1:
                         currentList.contactListDisplay();
+                        operationPrintMenu();
                         break;
                     case 2:
                         addContact(currentList);
@@ -74,7 +77,8 @@ public class contactApp {
                         break;
                     case 6:
                         System.out.println("PROGRAM IS CLOSING THE CONTACT MENU");
-                        System.out.println("PROGRAM WILL RETURN YOU TO THE OPERATIONS MENU\n");
+                        System.out.println("PROGRAM WILL RETURN YOU TO THE APPLICATION MENU\n");
+                        App.applicationMenu();
                         break;
                     default:
                         System.out.println("INVALID THAT'S NOT A CHOICE");
@@ -93,11 +97,11 @@ public class contactApp {
         String firstName = scan.nextLine();
         System.out.print("Last Name: ");
         String lastName = scan.nextLine();
-        System.out.print("Phone Number(xxx-xx-xxxx): ");
+        System.out.print("Phone Number(xxx-xxx-xxxx): ");
         String phoneNumber = scan.nextLine();
         System.out.print("Email Address (x@y.z): ");
         String email = scan.nextLine();
-        currentList.addContact(firstName,lastName,phoneNumber,email);
+        currentList.addContact(firstName, lastName, phoneNumber, email);
     }
 
     private static void contactListMenuPrint() {
@@ -110,10 +114,10 @@ public class contactApp {
     }
 
     private static void editContact(contactList currentList) {
-        String first,last,number,email;
+        String first, last, number, email;
         int choice;
 
-        if(currentList.size() < 1){
+        if (currentList.size() < 1) {
             System.out.println("INVALID LIST IS EMPTY");
             return;
         }
@@ -123,21 +127,22 @@ public class contactApp {
         choice = scan.nextInt();
         scan.nextLine();
 
-        if(choice >= currentList.size()){
+        if (choice >= currentList.size()) {
             System.out.println("WARNING: invalid Selection.");
             return;
         }
 
-        System.out.print("Enter a new name for contact "+choice+": ");
+        System.out.print("Enter a new name for contact " + choice + ": ");
         first = scan.nextLine();
-        System.out.print("Enter a new last name for contact "+choice+": ");
+        System.out.print("Enter a new last name for contact " + choice + ": ");
         last = scan.nextLine();
-        System.out.print("Enter a new phone number (xxx-xxx-xxxx) for contact "+choice+": ");
+        System.out.print("Enter a new phone number (xxx-xxx-xxxx) for contact " + choice + ": ");
         number = scan.nextLine();
-        System.out.print("Enter a new email address (x@y.z) for contact "+choice+": ");
+        System.out.print("Enter a new email address (x@y.z) for contact " + choice + ": ");
         email = scan.nextLine();
 
         currentList.editContact(choice, first, last, number, email);
+        contactOperationMenu(currentList);
     }
 
     private static void removeContact(contactList currentList) {
@@ -149,6 +154,7 @@ public class contactApp {
         scan.nextLine();
 
         currentList.removeContact(choice);
+        contactOperationMenu(currentList);
     }
 
     private static void operationPrintMenu() {
@@ -164,15 +170,41 @@ public class contactApp {
     }
 
     private static void loadContact() {
-
-
-
+        String newFile;
+        System.out.print("Enter the file name (.txt): ");
+        newFile = scan.nextLine();
+        try {
+            File fin = new File(newFile);
+            try (Scanner fileScanner = new Scanner(fin)) {
+                contactList savingList = new contactList();
+                while (fileScanner.hasNextLine())
+                    savingList.addContact(fileScanner.nextLine(), fileScanner.nextLine(), fileScanner.nextLine(), fileScanner.nextLine());
+                fileScanner.close();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("INVALID DOES NOT SAVE");
+        }
     }
 
     private static void saveContact(contactList currentList) {
+        System.out.print("Enter a file name: ");
+        scan.nextLine();
+        String fileName = System.getProperty("user.dir") + "\\" + scan.nextLine();
 
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 
+            for(contactItem Ci : currentList.GetContactItem()) {
+                writer.write(Ci.getFirstName() + "," + Ci.getLastname() + "," + Ci.getPhoneNumber() + "," + Ci.getEmail() + "\n");
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("INVALID FORMAT THE SAVE HAS BEEN ABORTED");
+            return;
+        }
 
+        System.out.println("The task list has been saved \n");
+        System.out.println("PROGRAM WILL BE SENDING YOU TO THE TASK MENU\n");
     }
 }
 
