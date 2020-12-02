@@ -18,7 +18,7 @@ public class App {
                 choice = scan.nextInt();
                 switch (choice) {
                     case 1:
-                        taskListMenu();
+                        TaskApp currentTask = new TaskApp();
                         applicationMenuPrint();
                         break;
                     case 2:
@@ -39,10 +39,6 @@ public class App {
                 }
             }
         return choice;
-    }
-
-    private static void taskListMenu(){
-
     }
 
     private static void applicationMenuPrint() {
