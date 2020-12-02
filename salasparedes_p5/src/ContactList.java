@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class contactList extends ArrayList<contactItem> {
-    private ArrayList<contactItem> test;
+public class ContactList extends ArrayList<ContactItem> {
+    private ArrayList<ContactItem> test;
     public void addContact(String firstName, String lastName, String phoneNumber, String email) {
-        contactItem currentContact = contactItem.newContact(firstName,lastName,phoneNumber,email);
+        ContactItem currentContact = ContactItem.newContact(firstName,lastName,phoneNumber,email);
         if(currentContact == null){
             return;
         }
@@ -12,7 +12,7 @@ public class contactList extends ArrayList<contactItem> {
     public void contactListDisplay(){
         int i = 0;
         System.out.println("\nCurrent Tasks\n--------------\n");
-        for(contactItem contact : this){
+        for(ContactItem contact : this){
             System.out.println(i + " ) Name: "+contact.getFirstName()+" "+contact.getLastname()+"\nPhone: "+contact.getPhoneNumber()+"\nEmail: "+contact.getEmail()+"\n" );
             i++;
         }
@@ -36,7 +36,7 @@ public class contactList extends ArrayList<contactItem> {
         return true;
     }
 
-    public ArrayList<contactItem> GetContactItem() {
+    public ArrayList<ContactItem> GetContactItem() {
         return test;
     }
 }

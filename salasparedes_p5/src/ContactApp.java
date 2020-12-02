@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class contactApp {
+public class ContactApp {
     private static final Scanner scan = new Scanner(System.in);
 
-    public contactApp() {
+    public ContactApp() {
         contactListMenu();
     }
 
@@ -37,18 +37,19 @@ public class contactApp {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("INVALID THAT'S A LETTER!!!!");
+                contactListMenuPrint();
                 scan.nextLine();
             }
         }
     }
 
     private static void createContact() {
-        contactList currentList = new contactList();
+        ContactList currentList = new ContactList();
         System.out.println("New contact is being created");
         contactOperationMenu(currentList);
     }
 
-    private static void contactOperationMenu(contactList currentList) {
+    private static void contactOperationMenu(ContactList currentList) {
         operationPrintMenu();
         int choice = 0;
         while (choice != 3) {
@@ -86,12 +87,13 @@ public class contactApp {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("INVALID THAT'S A LETTER!!!!");
+                operationPrintMenu();
                 scan.nextLine();
             }
         }
     }
 
-    private static void addContact(contactList currentList) {
+    private static void addContact(ContactList currentList) {
         scan.nextLine();
         System.out.print("First Name: ");
         String firstName = scan.nextLine();
@@ -113,7 +115,7 @@ public class contactApp {
                 "3) quit\n");
     }
 
-    private static void editContact(contactList currentList) {
+    private static void editContact(ContactList currentList) {
         String first, last, number, email;
         int choice;
 
@@ -145,7 +147,7 @@ public class contactApp {
         contactOperationMenu(currentList);
     }
 
-    private static void removeContact(contactList currentList) {
+    private static void removeContact(ContactList currentList) {
         int choice;
 
         currentList.contactListDisplay();
@@ -176,7 +178,7 @@ public class contactApp {
         try {
             File fin = new File(newFile);
             try (Scanner fileScanner = new Scanner(fin)) {
-                contactList savingList = new contactList();
+                ContactList savingList = new ContactList();
                 while (fileScanner.hasNextLine())
                     savingList.addContact(fileScanner.nextLine(), fileScanner.nextLine(), fileScanner.nextLine(), fileScanner.nextLine());
                 fileScanner.close();
@@ -186,7 +188,7 @@ public class contactApp {
         }
     }
 
-    private static void saveContact(contactList currentList) {
+    private static void saveContact(ContactList currentList) {
         System.out.print("Enter a file name: ");
         scan.nextLine();
         String fileName = System.getProperty("user.dir") + "\\" + scan.nextLine();
@@ -194,7 +196,7 @@ public class contactApp {
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 
-            for(contactItem Ci : currentList.GetContactItem()) {
+            for(ContactItem Ci : currentList.GetContactItem()) {
                 writer.write(Ci.getFirstName() + "," + Ci.getLastname() + "," + Ci.getPhoneNumber() + "," + Ci.getEmail() + "\n");
             }
             writer.close();

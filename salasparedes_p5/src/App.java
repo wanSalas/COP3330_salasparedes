@@ -8,7 +8,7 @@ public class App {
         applicationMenu();
     }
 
-    static void applicationMenu() {
+    static int applicationMenu() {
         int choice = 0;
 
         applicationMenuPrint();
@@ -22,21 +22,23 @@ public class App {
                         applicationMenuPrint();
                         break;
                     case 2:
-                        contactApp currentContact = new contactApp();
+                        ContactApp currentContact = new ContactApp();
                         applicationMenuPrint();
                         break;
                     case 3:
                         System.out.println("THANKS FOR PLAYING GOODBYE!");
-                        break;
+                        return 0;
                     default:
                         System.out.println("INVALID THAT'S NOT A CHOICE");
                         System.out.print(">");
                 }
                 }catch (InputMismatchException e){
                     System.out.println("INVALID THAT'S A LETTER!!!!");
+                    applicationMenuPrint();
                     scan.nextLine();
                 }
             }
+        return choice;
     }
 
     private static void taskListMenu(){

@@ -1,12 +1,12 @@
-public class contactItem {
+public class ContactItem {
 
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String eMail;
 
-    public static contactItem newContact(String first, String last, String number, String email){
-        contactItem contact = new contactItem();
+    public static ContactItem newContact(String first, String last, String number, String email){
+        ContactItem contact = new ContactItem();
         int flag = 0;
         if(first.length() > 0 || last.length() > 0 || number.length() > 0 || email.length() > 0){
             flag = 1;
@@ -91,7 +91,7 @@ public class contactItem {
         this.eMail = email;
     }
 
-    public void editContact(String first /* name */ , String last /* last name */, String number, String email ){
+    public void editContact(String first , String last, String number, String email ){
         int flag = 0;
         if(!this.validNumber(number)){
             System.out.println("INVALID NUMBER CONTACT WAS NOT CREATED");
