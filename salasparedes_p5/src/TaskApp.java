@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TaskApp {
-    public static void main(String[] args){
+    public TaskApp(){
         mainMenu();
     }
     private static void mainMenu(){
