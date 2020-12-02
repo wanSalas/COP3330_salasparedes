@@ -272,7 +272,7 @@ public class TaskApp {
     }
 
     private static void mainMenuPrints() {
-        System.out.println("Main Menu\n" +
+        System.out.println("Task List Menu\n" +
                 "---------\n" +
                 "1) create a new list\n" +
                 "2) load an existing list\n" +
